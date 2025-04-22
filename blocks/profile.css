@@ -1,48 +1,46 @@
 .profile {
-  margin: 34px 80px 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
   display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
 }
 
 .profile__avatar {
-  width: 100%;
-  max-width: 190px;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  margin-right: 20px;
+  height: 190px;
+  width: 190px;
   object-fit: cover;
-  border-radius: 12px;
+  display: block;
+  border-radius: 8px;
 }
 
 .profile__column {
   display: flex;
   flex-direction: column;
-  margin: 0 auto 0 20px;
-  max-width: 420px;
 }
 
 .profile__name {
+  margin: 0 0 12px;
+  font-weight: 500;
   font-size: 32px;
-  line-height: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  color: rgba(33, 33, 33, 1);
-  margin: 0 auto 12px 0;
+  line-height: 1;
 }
 
 .profile__description {
+  margin: 0;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  color: rgba(33, 33, 33, 0.7);
   text-overflow: ellipsis;
-  display: -webkit-box;
   overflow: hidden;
+  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  color: rgba(33, 33, 33, 0.7);
-  margin: 0 auto 114px 0;
+  line-height: 1;
 }
 
 .profile__edit-profile-btn {
@@ -52,8 +50,11 @@
   border: none;
   background: none;
   font-size: 16px;
+  font-weight: 500;
   color: rgba(33, 33, 33, 0.7);
   transition: opacity 0.3s ease-in-out;
+  padding: 0;
+  margin: auto auto 0 0;
 }
 
 .profile__edit-profile-btn:hover {
@@ -70,10 +71,15 @@
   color: rgba(252, 245, 229, 1);
   width: 149px;
   height: 52px;
-  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
   transition: opacity 0.3s ease-in-out;
   margin: auto 0 0 auto;
-  padding: 18px 32px 18px 32px;
+  padding: 18px 32px;
+  text-overflow: none;
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Hides any overflow */
 }
 
 .profile__new-post-btn:hover {
@@ -82,4 +88,44 @@
 
 .plus-icon {
   color: rgba(252, 245, 229, 1);
+  width: 12px;
+  height: 12px;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    max-width: 288px;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    height: 80px;
+    width: 80px;
+    margin: 0 0 12px;
+  }
+
+  .profile__new-post-btn {
+    margin: 0;
+    width: 100%;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+
+  .profile__description {
+    margin: 0 0 32px;
+  }
+
+  .profile__edit-profile-btn {
+    margin: 0 0 20px;
+  }
+
+  .profile__column {
+    align-items: center;
+  }
 }
