@@ -22,13 +22,13 @@ An interactive social media web application where users can share their favorite
 
 ### Features
 
-![Allow users to add new posts](https://photos.app.goo.gl/ehAoWhUM4R7iTVgV9)
+![Allow users to add new posts](./images/demo/create-posts.gif)
 
-![Browse photos from a user's profile](https://photos.app.goo.gl/wb96yKhGmwwW8nrG9)
+![Browse photos from a user's profile](./images/demo/view-posts.gif)
 
-![Be able to make changes to your own profile](https://photos.google.com/album/AF1QipP39YD5yxnVbe9dMOOAAUiFbPyDhFqC_ybwJzmb/photo/AF1QipN4ns87isOYsRhzmDnH1p4vP_5AwVtBSgj_TIPI)
+![Be able to make changes to your own profile](./images/demo/edit-profile.gif)
 
-![Responsive web design to allow user's to access the application on any screen device](https://photos.google.com/album/AF1QipP39YD5yxnVbe9dMOOAAUiFbPyDhFqC_ybwJzmb/photo/AF1QipPZEKzTT01czpN-BLy63OAitbqYkKUDxLEnhtwk)
+![Responsive web design to allow user's to access the application on any screen device](./images/demo/responsive-layout.gif)
 
 ## 🔗 Github Pages Link
 
