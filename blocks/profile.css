@@ -60,11 +60,12 @@
   opacity: 0.7;
 }
 
-.profile__edit-profile-btn:hover {
-  opacity: 1;
+.profile__edit-profile-btn {
+  cursor: pointer;
 }
 
-.edit-icon {
+.profile__edit-profile-btn:hover {
+  opacity: 1;
 }
 
 .profile__new-post-btn {
@@ -93,7 +94,7 @@
   opacity: 0.8;
 }
 
-.plus-icon {
+.profile__plus-icon {
   color: rgba(252, 245, 229, 1);
   width: 12px;
   height: 12px;
