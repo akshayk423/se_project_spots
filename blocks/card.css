@@ -14,10 +14,14 @@
   border: none;
   opacity: 40%;
   transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card__like-btn:hover {
-  opacity: 90%;
+  opacity: 100%;
 }
 
 .card__content {
@@ -43,8 +47,14 @@
 }
 
 @media screen and (max-width: 627px) {
+  .card__like-btn {
+    width: 20px;
+    height: 18px;
+  }
+
   .card {
-    width: 288px;
+    max-width: 288px;
+    width: 100%;
   }
 
   .card__image {
@@ -53,6 +63,7 @@
   }
 
   .card__text {
+    font-size: 16px;
     max-width: calc(288px - 23px - 37px);
   }
 }
