@@ -44,6 +44,7 @@ editProfileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
+  editProfileModal.classList.remove("modal_is-opened");
 });
 
 function fillEditProfileInputs() {
@@ -56,4 +57,5 @@ newPostForm.addEventListener("submit", (evt) => {
   console.log(
     `Image Link: ${imageLinkInput.value} Caption: ${captionInput.value}`
   );
+  newPostModal.classList.remove("modal_is-opened");
 });
