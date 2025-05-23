@@ -50,6 +50,45 @@ const profileDescriptionInput =
 const imageLinkInput = newPostModal.querySelector("#image-link-input");
 const captionInput = newPostModal.querySelector("#caption-input");
 
+const cardContainer = document.querySelector(".cards__list");
+
+const modalImage = document.querySelector("#modal-image");
+const closeModalImage = modalImage.querySelector(".modal__image-close-btn");
+
+function getCardElement(data) {
+  const cardTemplate = document.querySelector("#card-template").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__text");
+  const cardImage = cardElement.querySelector(".card__image");
+
+  cardImage.setAttribute("src", data.link);
+  cardImage.setAttribute("alt", data.name);
+  cardTitle.textContent = data.name;
+
+  const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  cardLikeBtn.addEventListener("click", () => {
+    cardLikeBtn.classList.toggle("card__like-btn_liked");
+  });
+
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImage.addEventListener("click", () => {
+    const image = modalImage.querySelector(".modal__image");
+    image.setAttribute("src", data.link);
+    image.setAttribute("alt", data.name);
+    const caption = modalImage.querySelector(".modal__caption");
+    caption.textContent = data.name;
+    openModal(modalImage);
+  });
+
+  return cardElement;
+}
+
+closeModalImage.addEventListener("click", () => closeModal(modalImage));
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -89,12 +128,15 @@ function fillEditProfileInputs() {
 
 newPostForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  console.log(
-    `Image Link: ${imageLinkInput.value} Caption: ${captionInput.value}`
-  );
+  const data = {
+    name: captionInput.value,
+    link: imageLinkInput.value,
+  };
+  cardContainer.prepend(getCardElement(data));
   closeModal(newPostModal);
 });
 
-initialCards.forEach(function (element) {
-  console.log(`${element.name}`);
+initialCards.forEach((card) => {
+  const newCard = getCardElement(card);
+  cardContainer.prepend(newCard);
 });
