@@ -27,13 +27,13 @@ const initialCards = [
 
 const editProfileBtn = document.querySelector(".profile__edit-profile-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
-const editProfileForm = editProfileModal.querySelector(".modal__form");
+// const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editProfileForm = document.forms["profile-form"];
 
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#new-post-modal");
-const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
-const newPostForm = newPostModal.querySelector(".modal__form");
+// const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const newPostForm = document.forms["post-form"];
 
 // get profile name and description
 const profileInformation = document.querySelector(".profile__column");
@@ -52,11 +52,24 @@ const captionInput = newPostModal.querySelector("#caption-input");
 
 const cardContainer = document.querySelector(".cards__list");
 
+//modal preview elements
 const modalImage = document.querySelector("#modal-image");
-const closeModalImage = modalImage.querySelector(".modal__image-close-btn");
+const modalImagePreview = modalImage.querySelector(".modal__image");
+const caption = modalImage.querySelector(".modal__caption");
+
+const cardTemplate = document.querySelector("#card-template").content;
+
+// Find all close buttons
+const closeButtons = document.querySelectorAll(".modal__close-btn");
+
+closeButtons.forEach((button) => {
+  // Find the closest popup only once
+  const popup = button.closest(".modal");
+  // Set the listener
+  button.addEventListener("click", () => closeModal(popup));
+});
 
 function getCardElement(data) {
-  const cardTemplate = document.querySelector("#card-template").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__text");
   const cardImage = cardElement.querySelector(".card__image");
@@ -76,18 +89,14 @@ function getCardElement(data) {
   });
 
   cardImage.addEventListener("click", () => {
-    const image = modalImage.querySelector(".modal__image");
-    image.setAttribute("src", data.link);
-    image.setAttribute("alt", data.name);
-    const caption = modalImage.querySelector(".modal__caption");
+    modalImagePreview.setAttribute("src", data.link);
+    modalImagePreview.setAttribute("alt", data.name);
     caption.textContent = data.name;
     openModal(modalImage);
   });
 
   return cardElement;
 }
-
-closeModalImage.addEventListener("click", () => closeModal(modalImage));
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -102,16 +111,8 @@ editProfileBtn.addEventListener("click", function () {
   fillEditProfileInputs();
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
-});
-
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
-});
-
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
 });
 
 editProfileForm.addEventListener("submit", (evt) => {
@@ -132,11 +133,20 @@ newPostForm.addEventListener("submit", (evt) => {
     name: captionInput.value,
     link: imageLinkInput.value,
   };
-  cardContainer.prepend(getCardElement(data));
+  renderCard(data);
+  imageLinkInput.value = null;
+  captionInput.value = null;
   closeModal(newPostModal);
 });
 
 initialCards.forEach((card) => {
-  const newCard = getCardElement(card);
-  cardContainer.prepend(newCard);
+  renderCard(card);
 });
+
+// The function accepts a card object and a method of adding to the section
+// The method is initially `prepend`, but you can pass `append`
+function renderCard(item, method = "prepend") {
+  const cardElement = getCardElement(item);
+  // Add the card into the section using the method
+  cardContainer[method](cardElement);
+}

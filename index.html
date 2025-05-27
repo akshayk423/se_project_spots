@@ -74,7 +74,10 @@
         <div class="modal__image-container">
           <img class="modal__image" />
           <p class="modal__caption"></p>
-          <button type="button" class="modal__image-close-btn"></button>
+          <button
+            type="button"
+            class="modal__close-btn modal__close-btn_type_preview"
+          ></button>
         </div>
       </div>
 
@@ -82,7 +85,7 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit Profile</h2>
-          <form class="modal__form">
+          <form class="modal__form" id="profile-form">
             <label for="profile-name-input" class="modal__label">
               Name
               <input
@@ -112,7 +115,7 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">New Post</h2>
-          <form class="modal__form">
+          <form class="modal__form" id="post-form">
             <label for="image-link-input" class="modal__label">
               Image link
               <input
