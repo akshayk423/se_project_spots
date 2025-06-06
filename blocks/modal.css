@@ -94,6 +94,10 @@
   line-height: 100%;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__input::placeholder {
   opacity: 0.3;
   color: #212121;
@@ -103,7 +107,7 @@
   opacity: 1;
 }
 
-.modal__save-btn {
+.modal__submit {
   cursor: pointer;
   display: flex;
   gap: 8px;
@@ -120,8 +124,12 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.modal__save-btn:hover {
+.modal__submit:hover:not([disabled]) {
   opacity: 0.8;
+}
+
+.modal__submit_type_disabled {
+  opacity: 0.5;
 }
 
 .modal__image {
@@ -153,6 +161,19 @@
   padding: 0;
   transition: opacity 0.3s ease-in-out;
   cursor: pointer;
+}
+
+.modal__error {
+  display: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(255, 0, 0, 0.7);
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+}
+
+.modal__error_visible {
+  display: block;
 }
 
 .modal__close-btn_type_preview:hover {
