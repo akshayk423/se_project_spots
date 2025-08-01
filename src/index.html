@@ -8,24 +8,19 @@
       name="description"
       content="An interactive social media web application where users can add and remove photos, like photos of other users, and make a few minor adjustments to their profile"
     />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img
-          src="images/icons/logo.svg"
-          alt="spots logo"
-          class="header__logo"
-        />
+        <img id="spots-logo" alt="spots logo" class="header__logo" />
       </header>
 
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/bessie-coleman-avatar.png"
+            id="bessie-coleman-avatar"
             alt="profile avatar"
             class="profile__avatar"
           />
@@ -34,20 +29,12 @@
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-profile-btn">
-              <img
-                src="./images/icons/edit-icon.svg"
-                alt="edit-icon"
-                class="profile__edit-icon"
-              />
+              <img id="edit-icon" alt="edit-icon" class="profile__edit-icon" />
               Edit Profile
             </button>
           </div>
           <button type="button" class="profile__new-post-btn">
-            <img
-              src="./images/icons/plus.svg"
-              alt="plus"
-              class="profile__plus-icon"
-            />
+            <img id="plus-icon" alt="plus" class="profile__plus-icon" />
             New Post
           </button>
         </section>
@@ -151,7 +138,5 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
   </body>
 </html>

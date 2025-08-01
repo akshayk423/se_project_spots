@@ -1,3 +1,16 @@
+import "./index.css";
+import {
+  resetValidation,
+  enableValidation,
+  disableButton,
+  validationConfig,
+} from "../scripts/validate.js";
+
+import logoSrc from "../images/icons/logo.svg";
+import avatarSrc from "../images/bessie-coleman-avatar.png";
+import editIconSrc from "../images/icons/edit-icon.svg";
+import plusIconSrc from "../images/icons/plus.svg";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -24,6 +37,19 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
+
+//image imports
+const spotsLogo = document.getElementById("spots-logo");
+spotsLogo.src = logoSrc;
+
+const bessieColmanAvatar = document.getElementById("bessie-coleman-avatar");
+bessieColmanAvatar.src = avatarSrc;
+
+const editIcon = document.getElementById("edit-icon");
+editIcon.src = editIconSrc;
+
+const plusIcon = document.getElementById("plus-icon");
+plusIcon.src = plusIconSrc;
 
 const editProfileBtn = document.querySelector(".profile__edit-profile-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -128,7 +154,7 @@ editProfileBtn.addEventListener("click", function () {
   resetValidation(
     editProfileForm,
     [profileNameInput, profileDescriptionInput],
-    settings
+    validationConfig
   );
 });
 
@@ -151,7 +177,7 @@ newPostForm.addEventListener("submit", (evt) => {
   };
   renderCard(data);
   newPostForm.reset();
-  disableButton(newPostFormSubmitBtn, settings);
+  disableButton(newPostFormSubmitBtn, validationConfig);
   closeModal(newPostModal);
 });
 
@@ -166,3 +192,5 @@ function renderCard(item, method = "prepend") {
   // Add the card into the section using the method
   cardContainer[method](cardElement);
 }
+
+enableValidation(validationConfig);
