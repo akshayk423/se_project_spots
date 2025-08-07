@@ -27,9 +27,10 @@ An interactive social media web application where users can share their favorite
 
 ### Features
 
-![Be able to make changes to your own profile](./images/demo/edit-profile.gif)
-
-![Responsive web design to allow user's to access the application on any screen device](./images/demo/responsive-layout.gif)
+- Edit Avatar using an image link
+- Edit Name and About description on user's profile
+- Create posts using an image link and caption
+- Like images that are posted
 
 ## 🔗 Github Pages Link
 
