@@ -68,6 +68,7 @@
   line-height: 1;
   margin: 0 0 32px;
   color: #212121;
+  text-align: left;
 }
 
 .modal__label {
@@ -116,12 +117,74 @@
   border: none;
   background-color: #212121;
   color: #ffffff;
-  max-width: 156px;
+  width: 156px;
   padding: 18px 32px;
   font-size: 16px;
   font-weight: 500;
   border-radius: 8px;
   transition: opacity 0.3s ease-in-out;
+}
+.modal__options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#delete-card-modal .modal__container {
+  width: 630px;
+}
+
+#edit-avatar-modal .modal__container {
+  max-width: 630px;
+}
+
+.modal__header {
+  display: flex;
+}
+
+.modal__delete-btn {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: rgba(255, 101, 101, 1);
+  color: rgba(33, 33, 33, 1);
+  width: 156px;
+  padding: 18px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.modal__delete-btn:hover {
+  background-color: rgba(255, 51, 51, 1);
+}
+
+.modal__cancel-btn {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(33, 33, 33, 1);
+  border-width: 1px;
+  color: rgba(33, 33, 33, 1);
+  width: 156px;
+  padding: 18px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .modal__submit:hover:not([disabled]) {
@@ -208,13 +271,34 @@
     gap: 24px;
   }
 
+  .modal__image {
+    max-width: 90vw;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .modal__container {
+    width: 98vw;
+    padding: 2vw;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .modal__options {
+    flex-direction: column;
+  }
+  .modal__delete-btn {
+    margin: 0 auto;
+  }
+  .modal__cancel-btn {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 828px) {
   .modal__close-btn_type_preview {
     z-index: 999;
     right: -16px;
     top: -48px;
-  }
-
-  .modal__image {
-    max-width: 90vw;
   }
 }
